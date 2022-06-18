@@ -13,7 +13,7 @@ public class GetJobsQueryHandlerTests : UnitTestBase
     public async Task GivenJobsQuery_WhenNoResults_ThenEmptyListReturned()
     {
         var query = new GetJobsQuery();
-        var handler = new GetJobsQueryHandler(Context);
+        var handler = new GetJobsQueryHandler(Context, Mapper);
 
         var response = await handler.Handle(query, CancellationToken.None);
 
@@ -48,7 +48,7 @@ public class GetJobsQueryHandlerTests : UnitTestBase
         await Context.SaveChangesAsync();
         
         var query = new GetJobsQuery();
-        var handler = new GetJobsQueryHandler(Context);
+        var handler = new GetJobsQueryHandler(Context, Mapper);
 
         var response = await handler.Handle(query, CancellationToken.None);
 

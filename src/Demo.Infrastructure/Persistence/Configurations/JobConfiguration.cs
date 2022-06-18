@@ -13,6 +13,8 @@ namespace Demo.Infrastructure.Persistence.Configurations
                 throw new ArgumentNullException(nameof(builder));
             }
 
+            builder.ToTable("RX_Job");
+
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Name).HasMaxLength(50);
