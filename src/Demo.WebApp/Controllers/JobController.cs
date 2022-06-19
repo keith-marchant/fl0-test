@@ -1,4 +1,5 @@
-﻿using Demo.Application.Jobs.Queries.GetJobs;
+﻿using Demo.Application.Jobs.Commands.CompleteJob;
+using Demo.Application.Jobs.Queries.GetJobs;
 using Demo.WebApp.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,8 @@ namespace Demo.WebApp.Controllers
         [HttpPost("Complete/{id}")]
         public async Task<IActionResult> Complete([FromRoute]Guid id, CancellationToken cancellationToken)
         {
+            await _mediator.Send(new CompleteJobCommand(id), cancellationToken);
+
             return RedirectToAction(nameof(Index));
         }
     }
