@@ -13,7 +13,7 @@ namespace Demo.Application
             services.AddAutoMapper(new Assembly[] { Assembly.GetExecutingAssembly() });
             services.AddMediatR(new Assembly[] { Assembly.GetExecutingAssembly() });
             services.AddFluentValidation(Assembly.GetExecutingAssembly());
-
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehaviour<,>));
             return services;
         }

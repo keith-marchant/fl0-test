@@ -16,3 +16,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.tr-unknown {
+    background-color: lightyellow;
+}
+
+.tr-complete {
+    background-color: green;
+}
+
+.tr-notstarted { 
+    background-color: lightgray;
+}
+
+.tr-inprogress {
+    background-color: lightskyblue;
+}
+
+.tr-delayed {
+    background-color: lightcoral;
+}

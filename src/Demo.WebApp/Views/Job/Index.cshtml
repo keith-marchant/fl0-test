@@ -18,7 +18,7 @@
         </thead>
         @foreach(var job in Model.Jobs)
         {
-            <tr>
+            <tr class="tr-@(job.StatusEnum.ToString().ToLower())">
                 <td>
                     @Html.DisplayFor(modelItem => job.Id)
                 </td>
@@ -38,7 +38,7 @@
                     @if (job.Status.Equals("Delayed", StringComparison.InvariantCultureIgnoreCase)
                || job.Status.Equals("In Progress", StringComparison.InvariantCultureIgnoreCase))
                     {
-                        <button asp-controller="Job" asp-action="Complete" asp-route-id="@job.Id">Complete</button>
+                        <button class="button" asp-controller="Job" asp-action="Complete" asp-route-id="@job.Id">Complete</button>
                     }
                 </td>
             </tr>

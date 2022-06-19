@@ -20,7 +20,7 @@ namespace Demo.WebApp.Controllers
             return View(new JobListViewModel(result));
         }
 
-        [HttpPost("{id}")]
+        [HttpPost("Complete/{id}")]
         public async Task<IActionResult> Complete([FromRoute]Guid id, CancellationToken cancellationToken)
         {
             return RedirectToAction(nameof(Index));
