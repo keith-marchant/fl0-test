@@ -1,5 +1,7 @@
 using Demo.Application;
 using Demo.Infrastructure;
+using FluentValidation;
+using Hellang.Middleware.ProblemDetails;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,16 @@ builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddSwaggerGen();
+builder.Services.AddProblemDetails(setup =>
+{
+    setup.IncludeExceptionDetails = (ctx, env) => builder.Environment.IsDevelopment();
+
+    setup.Map<ValidationException>(exception => new Microsoft.AspNetCore.Mvc.ProblemDetails
+    {
+        Title = exception.Message,
+        Status = StatusCodes.Status400BadRequest,
+    });
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -23,6 +35,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseProblemDetails();
 
 if (app.Environment.IsDevelopment())
 {

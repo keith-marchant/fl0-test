@@ -63,6 +63,11 @@ log all unhandled exceptions.
 
 ### Error Handling
 
+I have added exception handling middleware `UnhandledExceptionBehaviour` to log all exceptions. I have also added `Hellang.Middleware.ProblemDetails` 
+to the `WebApp` to format any exceptions the application does produce. I have mapped validation exceptions to HTTP 400 (see `Program.cs` for implementation).
+I can extend this as needed. If you execute in `Development` then you will see stack traces in the exceptions, however in `Production` only the
+status codes will be displayed.
+
 ### Validation
 
 I am using `FluentValidation` to handle validation and it is integrated into the `Mediatr` pipeline via `RequestValidationBehaviour` such
