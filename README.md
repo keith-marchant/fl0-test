@@ -24,6 +24,11 @@ dotnet build
 dotnet run
 ```
 
+### API Routes
+
+* Swagger is available (link from home page or `/swagger`) and this can test the APIs.
+* API route for job status by room type is `GET /api/JobStatus`
+
 ## Testing the Demo
 
 ```PowerShell
