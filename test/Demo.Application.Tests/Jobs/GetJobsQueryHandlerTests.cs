@@ -1,5 +1,4 @@
 using Demo.Application.Jobs.Queries.GetJobs;
-using FluentAssertions;
 
 namespace Demo.Application.Tests.Jobs;
 

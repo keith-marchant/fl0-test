@@ -78,4 +78,5 @@ UI I would do the following:
 2. Implement pagination for any data retrieval to improve page load
 3. Add filters to the list page to make it usable
 4. Improve the design by making the colours palatable and adding a workflow aspect to transition jobs between stages
-5. Consider using a JavaScript front-end technology instead of Razor pages, although this depends on business requirements and user expectations.
+5. Remove the full page postback on status update
+6. Consider using a JavaScript front-end technology instead of Razor pages, although this depends on business requirements and user expectations.
